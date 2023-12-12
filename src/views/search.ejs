@@ -24,7 +24,9 @@
 
 
     <div class="list-group">
-      
+      <% {books.map((book) => { %>
+        <%- include('partials/book.ejs', {book}) %>
+      <% })} %>
     </div>
   </div>
 </div>

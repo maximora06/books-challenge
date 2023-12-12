@@ -19,6 +19,7 @@
   
           <h1 class="text-white mb-4">Register a new user</h1>
   
+          <p id="errors" style="color: rgb(255, 0, 0);"><%= message != null ?  message  : "" %></p>
           <form action="/users/register" method="POST" class="card" style="border-radius: 15px;">
             <div class="card-body">
   
@@ -113,5 +114,36 @@
   </section>
 </div>
 <%- include('partials/footer.ejs') %>
+
+<script>  
+  const formElement = document.querySelector('form');
+  const errorElement = document.querySelector("#errors")
+  
+  formElement.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if(formElement.name.value.trim() == '') {            
+        errorElement.innerHTML = 'Es necesario ingresar un nombre'
+        return;
+    }
+    
+    if(formElement.email.value.trim() == '') {            
+        errorElement.innerHTML = 'El correo es invalido'
+        return;
+    }
+
+    if(formElement.country.value.trim() === '') {
+      errorElement.innerHTML = 'Es necesario ingresar un pais'
+      return;
+    }
+    
+    if(formElement.password.value.trim() === '') {
+      errorElement.innerHTML = 'Es necesario ingresar una contraseña'
+      return;
+    }
+
+    formElement.submit()
+  });
+</script>
 </body>
 </html>

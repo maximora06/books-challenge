@@ -44,8 +44,8 @@ VALUES
 
 CREATE TABLE BooksAuthors (
     Id INT NOT NULL AUTO_INCREMENT,
-    AuthorId INT NOT NULL,
-    BookId  INT NOT NULL,
+    AuthorId INT NOT NULL ,
+    BookId  INT NOT NULL ,    
     FOREIGN KEY (AuthorId) REFERENCES Authors(Id),
     FOREIGN KEY (BookId) REFERENCES Books(Id),
     PRIMARY KEY(Id)
